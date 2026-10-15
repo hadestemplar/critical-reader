@@ -1,0 +1,32 @@
+{
+  "slug": "liang-hong-china-in-liangzhuang",
+  "title": "晃动的十年：梁鸿的中国在梁庄",
+  "source_url": "https://mp.weixin.qq.com/s/sdUKzvZ2R0mxi5jaFGei3Q",
+  "account": "搜神记SoShine",
+  "platform": "weixin",
+  "publish_date": "2021-04-04",
+  "word_count": 10655,
+  "images": 12,
+  "collected_at": "2026-10-13T20:51:28+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "混合/不确定",
+  "tier": "B",
+  "category_note": "混合/不确定：围绕梁鸿《中国在梁庄》的长篇访谈＋书评，叙事引述与文学/社会学评论交织，本批近似分 0.38（B 档区间下沿），主副标签不可区分，按 B 轨处理并记录不确定。",
+  "length_band": "中",
+  "char_count": 12022,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 12,
+  "sample_url_id": "sdUKzvZ2R0mxi5jaFGei3Q",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/sdUKzvZ2R0mxi5jaFGei3Q",
+  "html_bytes": 3678478,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "anysearch batch_search 引号精确短语 \"mp.weixin.qq.com/s\" 非虚构 观察（2026-10-13 第 3 批检索）"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:58:34+08:00"
+}

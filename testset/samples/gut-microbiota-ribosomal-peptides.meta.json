@@ -1,0 +1,32 @@
+{
+  "slug": "gut-microbiota-ribosomal-peptides",
+  "title": "肠道菌群暗藏“江湖”，核糖体肽巧扮“杀器",
+  "source_url": "https://mp.weixin.qq.com/s/sx0GbfnQ9V5ITe9Sm8LqqA",
+  "account": "中科院之声",
+  "platform": "weixin",
+  "publish_date": "2021-12-17",
+  "word_count": 2085,
+  "images": 6,
+  "collected_at": "2026-10-13T20:51:56+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "科普/解释",
+  "tier": "B",
+  "category_note": "本批「伪引用」专项样本：科普稿两处以「研究表明/研究显示」引出机制结论（cite=2），但全文除「来源：中国科学院深圳先进技术研究院」外无文献、期刊、DOI 等任何出处标记（src=1），引用不可核验。",
+  "length_band": "短",
+  "char_count": 3071,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 6,
+  "sample_url_id": "sx0GbfnQ9V5ITe9Sm8LqqA",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/sx0GbfnQ9V5ITe9Sm8LqqA",
+  "html_bytes": 3472045,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "anysearch batch_search 引号精确短语 \"mp.weixin.qq.com/s\" 学术 长文 万字（2026-10-13 第 3 批检索）"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:58:34+08:00"
+}

@@ -1,0 +1,24 @@
+# 文档许可
+
+除 `scripts/` 与 `testset/selfcheck.mjs` 之外的**全部内容**——协议文本（`references/`、`rubric/`）、报告规范与模板（`references/09-report-spec.md`、`templates/`）、`SKILL.md`、`README.md`、`docs/`、`testset/README.md` 等——采用
+
+**Creative Commons Attribution 4.0 International（CC BY 4.0）**
+
+你可以自由地共享（以任何媒介或格式复制、发行本作品）与演绎（修改、转换或以本作品为基础进行创作），包括商业目的，条件是**署名**：给出适当的署名、提供指向本许可的链接，并标明是否作出了修改。
+
+- 许可全文（**权威文本，以该处为准**）：https://creativecommons.org/licenses/by/4.0/legalcode.zh-hans
+- 人可读摘要：https://creativecommons.org/licenses/by/4.0/deed.zh-hans
+
+---
+
+## 第三方内容
+
+- `testset/samples/` 中的文章是**从公开渠道采集的真实中文文章，著作权归原作者与原发布方所有**，仅用于协议测试与校准，**不在本许可覆盖范围内**，也不由本项目授权。权利人如不希望自己的文章出现在此处，请提 issue，我们会移除。
+- `scripts/` 依赖的第三方包（如 `unpdf`，MIT）许可见各自目录。
+- 协议在调研阶段引用过的外部方法论（SIFT、Admiralty Code、Toulmin 论证模型、Walton 论证方案、IMVAIN、Diátaxis 等）均为**引用与转述**，不是复制。被判定为许可敏感、不可进入可分发内容的材料（CASP、AAC&U VALUE、JBI、Wikipedia 文本）**未进入本仓库**。
+
+---
+
+## 署名示例
+
+> 基于 critical-reader（CC BY 4.0）判定；改动：调整了报告模板第 10 章的列。

@@ -1,0 +1,32 @@
+{
+  "slug": "wang-hong-prize-education-trauma",
+  "title": "王虹获奖，全网确诊教育创伤",
+  "source_url": "https://mp.weixin.qq.com/s/U1i4cYs164JFhuWHoESKxQ",
+  "account": "看理想",
+  "platform": "weixin",
+  "publish_date": "2026-07-29",
+  "word_count": 5815,
+  "images": 12,
+  "collected_at": "2026-10-13T20:50:11+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "论证/评论",
+  "tier": "B",
+  "category_note": "个人随笔/文化评论：以数学家王虹获奖事件切入「教育创伤」话题，观点与个人经验交织，近似分 0.47；按观点帖走 B 档降级审查。",
+  "length_band": "中",
+  "char_count": 6733,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 12,
+  "sample_url_id": "U1i4cYs164JFhuWHoESKxQ",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/U1i4cYs164JFhuWHoESKxQ",
+  "html_bytes": 3795176,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "anysearch batch_search 引号精确短语 \"mp.weixin.qq.com/s\" 看理想（2026-10-13 第 3 批检索）"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:58:34+08:00"
+}

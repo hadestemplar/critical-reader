@@ -1,0 +1,32 @@
+{
+  "slug": "over-modelization-critique-economics",
+  "title": "经济学研究“过度模型化”的误区及其纠正",
+  "source_url": "https://mp.weixin.qq.com/s/S7XqaeRBwj86vsbIl5e9Rg",
+  "account": "中国学派",
+  "platform": "weixin",
+  "publish_date": "2026-04-15",
+  "word_count": 6973,
+  "images": 1,
+  "collected_at": "2026-10-13T20:49:15+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "学术/技术论证",
+  "tier": "A",
+  "category_note": "学术期刊风格的经济学方法论批评：围绕「过度模型化」给出定义、机制、反例与纠正路径，含「研究表明/因此」式论证链，S 档候选（PLAN 五.1「学术/技术论证」簇）。",
+  "length_band": "中",
+  "char_count": 7696,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 1,
+  "sample_url_id": "S7XqaeRBwj86vsbIl5e9Rg",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/S7XqaeRBwj86vsbIl5e9Rg",
+  "html_bytes": 3536958,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "anysearch batch_search 引号精确短语 \"mp.weixin.qq.com/s\" 研究方法 因果 推断（2026-10-13 第 3 批检索）"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:58:34+08:00"
+}

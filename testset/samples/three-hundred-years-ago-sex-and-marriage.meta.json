@@ -1,0 +1,32 @@
+{
+  "slug": "three-hundred-years-ago-sex-and-marriage",
+  "title": "300年前，普通人的性、婚姻与光棍危机",
+  "source_url": "https://mp.weixin.qq.com/s/CD6_FW4_3RZKyLRpHoE8aw",
+  "account": "青年志Youthology",
+  "platform": "weixin",
+  "publish_date": "2023-09-15",
+  "word_count": 12887,
+  "images": 22,
+  "collected_at": "2026-10-13T20:51:43+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "混合/不确定",
+  "tier": "B",
+  "category_note": "混合/不确定：前段史料叙事（人物个案）、后段社会结构与制度分析，叙事与论证并置；本批近似分 0.41（0.30–0.60 B 档区间内，落在 PLAN 五.1 的 0.4–0.6 目标段），无单一主导体裁标签，按 B 轨处理并显式记录不确定。注：近似分由本批脚本计算（S 项操作块占比取 0 计），非 L0-R4 正式判定。",
+  "length_band": "中",
+  "char_count": 14891,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 22,
+  "sample_url_id": "CD6_FW4_3RZKyLRpHoE8aw",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/CD6_FW4_3RZKyLRpHoE8aw",
+  "html_bytes": 3759170,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "anysearch batch_search 引号精确短语 \"mp.weixin.qq.com/s\" 上海书评（2026-10-13 第 3 批检索）"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:58:34+08:00"
+}

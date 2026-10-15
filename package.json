@@ -1,0 +1,10 @@
+{
+  "name": "critical-reader",
+  "version": "1.0.0",
+  "private": true,
+  "description": "critical-reader 输入解析脚本的可选依赖清单（PDF 文本层抽取）。脚本本身零 LLM 调用。",
+  "license": "MIT",
+  "dependencies": {
+    "unpdf": "^1.8.1"
+  }
+}

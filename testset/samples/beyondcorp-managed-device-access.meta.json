@@ -1,0 +1,32 @@
+{
+  "slug": "beyondcorp-managed-device-access",
+  "title": "浅谈BeyondCorp(一)-受管设备与分层访问",
+  "source_url": "https://mp.weixin.qq.com/s/-Gw-xhS1URokFqaxW4k1lQ",
+  "account": "掮客酒馆",
+  "platform": "weixin",
+  "publish_date": "2018-10-28",
+  "word_count": 4584,
+  "images": 4,
+  "collected_at": "2026-10-13T20:30:21+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "教程型",
+  "tier": "B",
+  "category_note": "技术讲解/参考型，非步骤式 how-to；教程属性偏弱，判定为 B 档解释类",
+  "length_band": "短",
+  "char_count": 5377,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 4,
+  "sample_url_id": "-Gw-xhS1URokFqaxW4k1lQ",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/-Gw-xhS1URokFqaxW4k1lQ",
+  "html_bytes": 3490730,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "\"mp.weixin.qq.com/s\" 科技 趋势"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:36:56+08:00"
+}

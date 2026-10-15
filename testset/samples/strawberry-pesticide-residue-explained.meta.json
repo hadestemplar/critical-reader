@@ -1,0 +1,32 @@
+{
+  "slug": "strawberry-pesticide-residue-explained",
+  "title": "草莓是“最脏水果”吗？专家深入解读农药残留",
+  "source_url": "https://mp.weixin.qq.com/s/MmdGkv_vl9mg4gcjJbXN8g",
+  "account": "中国科学报",
+  "platform": "weixin",
+  "publish_date": "2026-03-18",
+  "word_count": 2497,
+  "images": 2,
+  "collected_at": "2026-10-13T20:50:05+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "科普/解释",
+  "tier": "B",
+  "category_note": "正常科普对照样本：记者采访＋专家解释澄清「草莓是农药残留最高水果」传言，以事实澄清为功能，无显式论证链（P=0.16），无来源标记堆砌。",
+  "length_band": "短",
+  "char_count": 2825,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 2,
+  "sample_url_id": "MmdGkv_vl9mg4gcjJbXN8g",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/MmdGkv_vl9mg4gcjJbXN8g",
+  "html_bytes": 3551925,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "anysearch batch_search 引号精确短语 \"mp.weixin.qq.com/s\" 科普 误解（2026-10-13 第 3 批检索）"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:58:34+08:00"
+}

@@ -1,0 +1,21 @@
+# 依赖（首次提交前必须忽略：node_modules/.pnpm/unpdf@1.8.1/node_modules/unpdf/dist/pdfjs.mjs = 1637 KB > 1 MB）
+node_modules/
+
+# 临时产物
+_scratch/
+*.tmp
+*.bak
+
+# 抓取脚本的中间输出（正文与元数据默认写到调用方指定的路径；落在仓库内的这类产物不入库）
+scripts/out/
+
+# 操作系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# 运行期缓存
+*.log
+.cache/

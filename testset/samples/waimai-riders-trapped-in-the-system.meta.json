@@ -1,0 +1,32 @@
+{
+  "slug": "waimai-riders-trapped-in-the-system",
+  "title": "外卖骑手，困在系统里",
+  "source_url": "https://mp.weixin.qq.com/s/Mes1RqIOdp48CMw4pXTwXw",
+  "account": "人物",
+  "platform": "weixin",
+  "publish_date": "2020-09-08",
+  "word_count": 19499,
+  "images": 27,
+  "collected_at": "2026-10-13T20:41:49+08:00",
+  "collect_method": "anysearch 通用检索（查询词形如 \"mp.weixin.qq.com/s <主题>\"）→ mp.weixin.qq.com/s 分享短链 → Node.js 24 fetch（Chrome UA + Accept-Language zh-CN，OpenSSL 栈）→ 解析 HTML 中 id=\"js_content\" 容器，按 div 深度配对切片去标签，img 替换为 ![图N] 占位符，保留段落结构",
+  "fetch_status": "ok",
+  "category": "报道型",
+  "tier": "C",
+  "category_note": "深度调查报道（《人物》2020-09-08，记者赖祐萱/编辑金石，团队历时近半年采访全国各地数十位外卖骑手与学者）；19499 汉字为全目录唯一长文（>15000），也是全目录最长样本",
+  "length_band": "长",
+  "char_count": 23257,
+  "word_count_method": "正则统计 CJK 汉字（U+3400-4DBF、U+4E00-9FFF、U+F900-FAFF），不含标点、数字、拉丁字母与空白",
+  "image_placeholders": 27,
+  "sample_url_id": "Mes1RqIOdp48CMw4pXTwXw",
+  "http_status": 200,
+  "final_url": "https://mp.weixin.qq.com/s/Mes1RqIOdp48CMw4pXTwXw",
+  "html_bytes": 3818491,
+  "publish_date_raw": null,
+  "body_source": "mp.weixin.qq.com 页面 id=\"js_content\" 容器",
+  "discovered_via": [
+    "(用户提供的分享短链, user-provided; 非检索所得)"
+  ],
+  "license_note": "版权归原作者与原公众号所有；此处仅作内部测试集样本，不再分发",
+  "collected_by": "collection-agent (delegated)",
+  "built_at": "2026-10-13T20:42:29+08:00"
+}
