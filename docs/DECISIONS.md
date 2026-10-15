@@ -109,6 +109,8 @@
 
 | 66 | **第二轮 18 条缺陷全部闭合 + 当前 v1 交付版指纹集（见 §六）** | 第二轮跑次报出 `G-01`…`G-18`，按文件边界拆成 **T-J1**（protocol-core：`01`/`02`/`03`/`05`，9 条）、**T-J2**（protocol-tail：`07`/`08`/`rubric`，6 条 + 1 处连带）、**T-J3**（report-spec：`09` + 三模板，7 条 + 1 条连带）三包闭合，**18/18 无遗留**。**跨包连带共 3 条是执行者自己找出来的**（不在我任务书里）：① `templates\report-single.md:14` 与 `templates\screening-card.md:23`/`:46`/`:105` 的「结论是什么」——G-05 的第四、五、六个落点；② `templates\report-c-track.md:165`/`:175`/`:186` 与 `report-single.md:191`/`:201` 的 4 格坏行（**我任务书里写的「对照 `:163`/`:164` 的正确 2 格写法」是我编的，我根本没读过那些行**，正确写法在同文件更下方）；③ `08:56` 例外条款与 `01:62` 注的指针关系。**`G-15` 的闭合过程值得记**：第一次报「`09` 无 `locator` 闭集落点」时 `03` 只有三值，无落点可指；T-J1 把 `03:62` 扩为四值（`第 N 段`/`小标题「…」`/`第 N 节`/`行 N`）后，`09:71` 的三值才**真的**成了不一致——**同一个缺陷在两轮里的性质不同，第一轮是「没有落点」，第二轮是「两处口径不一致」，不能因为编号相同就当作同一条**。**方法层**：本包 18 条里，由执行者挡回我口径错误的共 **4 次**（`J-2a` 不可定位引用、`无法排除` 与契约两值域冲突、`G-07` 我依据过期记忆、`L62` 指针目标错），均由执行者**回盘实测后拒绝照抄** | `docs/e2e-run-2-defects.md` 是清单真源；三包回报的改前改后整行与指纹我已逐条独立实测。19 文件指纹见 §六 | 
 
+| 67 | **对外入口必须跟着真源走 —— 每次协议改动收口时复核 `SKILL.md` / `README.md` / `CHANGELOG.md`** | 第二轮缺陷扫尾（T-J1/T-J2/T-J3）改了 13 个协议与模板文件，**对外入口一个字没动**。我按用户指示复核时发现 5 处实质过期：① `SKILL.md` 与 `README.md` 仍写「输出多标签体裁 + 论证性分数，**映射到三条轨道**」——而 #64 已改为「**标签 → 轨**」映射表（主标签直接定轨）、论证性分数降为兜底；README 的轨道表还按「论证型 / 混合型 / 非论证型」列，与真实的`argument`/`academic`/`persuasion` → A 轨等映射不符（尤其 `persuasion` 从「非论证型」变成了 A 轨）；② 两者仍**无条件**要求「每个档位判定必须指得出锚点特征」，而 C 轨不做论证审查、其锚点不是论证特征（#64），会让 C 轨永远判不出 B/A；③ 交付形态仍写「同一交付物」，未按 #62 写「**必须同一次交付** + 可单独导出一页纸但不得替代完整报告」；④ `README.md` 的「自偏好风险」只有两值、已知局限写「v1 目前只有 3 个示例跑次」（实为两轮六次且均非可复现样例）；⑤ **`CHANGELOG.md` 的版本节仍是 `[未发布 · v1 协议改版]`，而 `package.json` 与 `SKILL.md` 早已是 `1.0.0`**——同一事实三处不一致。**根因与 #59「幽灵缺陷」、#65「引用未解指针」同族**：真源改了、派生件没跟着走，而派生件恰恰是用户第一眼看的东西。**纪律**：协议改动收口时把这三个文件列进复核清单；凡改动涉及「轨道怎么定 / 档位是什么 / 交付什么 / 版本号是多少」四类之一，必须回盘读这三个文件确认；`CHANGELOG.md` 的版本节必须与 `package.json`、`SKILL.md` frontmatter **三者逐字一致** | 三文件终态 `SKILL.md` 4852 B / `a9050464c350f3a1d3bf87631a5d16d7611aab471f764342c63e908dcc987552`、`README.md` 11463 / `96bec542bfe7ebe38b60e419031729a0e25ead1ec95d7f285d479636ff92bd8c`、`CHANGELOG.md` 5823 / `3e5f2555da8c064cb6837f8b107c327557de9d7c4def3d569717cfeb0fcc6378`（均我实测）。git 提交 `54dc538`（3 files changed, 42 insertions(+), 16 deletions(-)） |
+
 ---
 
 ## 二、待决事项
@@ -203,9 +205,11 @@
 | `templates/screening-card.md` | 3404 | `2100373a42643f2091211c73c80a2f5736262c72c68fd0dc4705606f8e81cb3d` |
 | `templates/report-single.md` | 13671 | `cfa6340089d0f1ffe26c0db88c3ef19f4c6f6f54c5772ba1b69e061b37ccdabf` |
 | `templates/report-c-track.md` | 13452 | `94f518166c5b5fddc0c98765317d7939b71991547967f7726c8f62ddfa031e28` |
-| `SKILL.md` | 4135 | `01e80ea661ab2261b97c86a5514a19ad17ff27d6abbc18aef9517e249552e8cc` |
-| `README.md` | 10610 | `d1bc37fda75cd70c0975e5240d5f125d341652a03a327e5ad5ab114c7b91b685` |
-| `CHANGELOG.md` | 3856 | `526f3a0aa4c1edabbcfc1afb64d6c45426f9432dab40056d3cf10cadb852c5e2` |
+| `SKILL.md` | 4852 | `a9050464c350f3a1d3bf87631a5d16d7611aab471f764342c63e908dcc987552` |
+| `README.md` | 11463 | `96bec542bfe7ebe38b60e419031729a0e25ead1ec95d7f285d479636ff92bd8c` |
+| `CHANGELOG.md` | 5823 | `3e5f2555da8c064cb6837f8b107c327557de9d7c4def3d569717cfeb0fcc6378` |
 | `package.json` | 273 | `a1d0ffcae63afa2fbef33b326d7cc9a2a29f2727fac1530ed856aa39ab71e9b0` |
 
-**与 §五 的差异**：19 个文件里 **13 个已变**（`references/00`–`03`、`05`、`07`–`09`、`rubric/vetoes.md`、`rubric/quality-dims.md`、三份 `templates/*`），未变的 6 个是 `references/04-assumptions.md`、`references/06-evidence.md`、`SKILL.md`、`README.md`、`CHANGELOG.md`、`package.json`。**`SKILL.md`/`README.md`/`CHANGELOG.md`/`package.json` 未变，说明本轮 18 条缺陷全部落在协议与模板内部，没有一条波及对外入口** —— 这是好事，但也意味着**对外入口还停在「第二轮跑次前那一版」，尚未按本轮最终口径复核过**（见「待办」）。
+**与 §五 的差异**：19 个文件里 **13 个已变**（`references/00`–`03`、`05`、`07`–`09`、`rubric/vetoes.md`、`rubric/quality-dims.md`、三份 `templates/*`）；`references/04-assumptions.md`、`references/06-evidence.md`、`package.json` 未变。**`SKILL.md` / `README.md` / `CHANGELOG.md` 三行是「对外入口复核」之后的取值**——协议扫尾本身没碰它们，是复核发现它们落后于真源、按用户指示修正后才变的（见 #67）。
+
+**用途提醒**：本表是下一次跑次的冻结判据。**跑次结束、协议再次改动后，本表即失效，须重算并另立一节**（不要就地改本表——就地改会让「哪一轮跑次用哪一版」不可追溯）。**`SKILL.md`/`README.md`/`CHANGELOG.md`/`package.json` 未变，说明本轮 18 条缺陷全部落在协议与模板内部，没有一条波及对外入口** —— 这是好事，但也意味着**对外入口还停在「第二轮跑次前那一版」，尚未按本轮最终口径复核过**（见「待办」）。
