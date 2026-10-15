@@ -17,7 +17,7 @@ user-invocable: true
 
 1. **先读 `references/00-protocol.md`。** 它是接口契约——执行顺序、每层的统一输出块、报告结构、降级规则都在里面。**先读它，不要直接从 01 开始。**
 2. 按契约 §2 的顺序跑六层。每层的判据在 `references/01`–`08`，否决项（红灯）触发条件的唯一真源是 `rubric/vetoes.md`，档位锚点在 `rubric/quality-dims.md`。
-3. **先出一页纸筛选卡**（`templates/screening-card.md`）——灯 + 档位 + 文章摘要 + 内容清单 + 结论·原因；**再出报告**，骨架按轨选 `templates/report-single.md`（A/B 轨）或 `templates/report-c-track.md`（C 轨）：13 章 + 附录 A，筛选卡是同一交付物的前置第一节、排在报告正文之前。
+3. **先出一页纸筛选卡**（`templates/screening-card.md`）——灯 + 档位 + 文章摘要 + 内容清单 + 结论·原因；**再出报告**，骨架按轨选 `templates/report-single.md`（A/B 轨）或 `templates/report-c-track.md`（C 轨）：13 章 + 附录 A。两者**必须同一次交付**，不得只交其一；卡可以另外单独导出一份只含这一页的版本，但不得以单独那份替代完整报告（`docs/DECISIONS.md` #62）。
 
 ## 取正文
 
@@ -36,9 +36,10 @@ user-invocable: true
 
 ## 输出口径
 
+- **轨道由 L0 决定，不要用分数反推**：优先级是 硬覆盖 > 「标签 → 轨」映射（`references/01-genre-routing.md` `L0-R2` 表；主标签＝标签分最高者：`argument`/`academic`/`persuasion` → A 轨，`exposition`/`news` → B 轨，`tutorial`/`narrative` → C 轨）> 论证性分数给的候选轨道兜底（**只在主标签定不下来时才用**）。
 - 档位取**闭集** `A` / `B` / `C` / `D` / `无法判定`；灯 🟢 / 🟡 / 🔴 / 🔵 是档位的机械映射（`A`=🟢 `B`=🟢 `C`=🟡 `D`=🔴 `无法判定`=🔵）。
 - **不设总分 / 质量分位置**，不出 0–120 数值，也不留「不适用」之类占位；原校准安排**已作废、不再恢复**（`docs/DECISIONS.md` #40、#55）。
-- 每个档位判定必须指得出 `rubric/quality-dims.md` 里对应的锚点特征。
+- 每个档位判定必须指得出 `rubric/quality-dims.md` 里对应的锚点特征——**但 C 轨例外**：C 轨不做论证审查，其档位由三条判据（可操作性 / 来源可信度 / 信息密度）的取值计数得出，锚点不是论证特征（`references/08-track-c.md` R9）。
 - 报告第 2 章写 灯 + 档位 + 置信度 + ≤40 字理由。
 - C 轨报告必须带逐字声明：`本文未做论证审查，改按 C 轨判据评估`。
 
