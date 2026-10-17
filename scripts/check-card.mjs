@@ -4,7 +4,7 @@
 import fs from "node:fs";
 
 const BT = String.fromCharCode(96);
-const STATUS = ["\u5DF2\u8BC4\u4F30", "\u672A\u8BC4\u4F30", "\u672A\u6838\u67E5", "\u65E0\u6CD5\u5224\u5B9A", "\u4E0D\u9002\u7528"];
+const STATUS = ["\u5DF2\u8BC4\u4F30", "\u672A\u8BC4\u4F30", "\u672A\u6838\u67E5", "\u65E0\u6CD5\u6838", "\u65E0\u6CD5\u5224\u5B9A"];
 const GRADES = ["A", "B", "C", "D", "\u2014"];
 const COLS = ["\u8BF4\u5F97\u6709\u9053\u7406\u5417", "\u8BF4\u7684\u662F\u771F\u7684\u5417", "\u503C\u5F97\u8BFB\u5417"];
 const LIGHTS = ["\uD83D\uDFE2", "\uD83D\uDFE1", "\uD83D\uDD34", "\uD83D\uDD35"];
@@ -49,6 +49,26 @@ function statusOfHeading(lines, name) {
   if (idx < 0) return null;
   const toks = backtickedTokens(lines[idx]);
   for (const t of toks) if (STATUS.indexOf(t) >= 0) return { value: t, line: idx + 1 };
+  return null;
+}
+
+function statusOfBullet(lines, name) {
+  const re = new RegExp("^- \\*\\*" + name + " ");
+  for (let i = 0; i < lines.length; i++) {
+    const t = lines[i].trim();
+    if (!re.test(t)) continue;
+    const toks = backtickedTokens(lines[i]);
+    for (const tk of toks) if (STATUS.indexOf(tk) >= 0) return { value: tk, line: i + 1, missing: false };
+    return { value: null, line: i + 1, missing: true };
+  }
+  return null;
+}
+
+function statusOfCard(lines, name) {
+  const h = statusOfHeading(lines, name);
+  if (h) return h;
+  const b = statusOfBullet(lines, name);
+  if (b && !b.missing) return b;
   return null;
 }
 
@@ -134,19 +154,28 @@ function checkFile(file) {
     add("R5", "-", "\u5F62\u6001\u4E0D\u81EA\u6D3D\uFF1A\u5224\u4E3A\u5927\u5361=" + big + "\u3001\u5224\u4E3A\u5C0F\u5361=" + small + "\uFF08\u6A21\u677F 2.1 / 2.2 \u8981\u6C42\u6070\u6709\u4E00\u4E2A\u6210\u7ACB\uFF09");
   }
 
-  // R6 - template L171: \u5927\u5361\u7684\u300C\u8BF4\u7684\u662F\u771F\u7684\u5417\u300D\u6807\u9898\u5FC5\u987B\u5E26 <\u72B6\u6001\u4F4D>
-  if (big) {
-    const s = statusOfHeading(lines, "\u8BF4\u7684\u662F\u771F\u7684\u5417");
-    if (!s) add("R6", "-", "\u5927\u5361\u7684 ## \u8BF4\u7684\u662F\u771F\u7684\u5417 \u6807\u9898\u7F3A\u5C11 <\u72B6\u6001\u4F4D>\uFF08\u6A21\u677F L171\uFF09");
-    else if (STATUS.indexOf(s.value) < 0) add("R6", s.line, "\u72B6\u6001\u4F4D\u53D6\u503C\u300C" + s.value + "\u300D\u4E0D\u5728\u95ED\u96C6\u5185");
-  }
+  // R6 - \u6BCF\u4E00\u680F\u90FD\u5FC5\u987B\u5E26 <\u72B6\u6001\u4F4D>\uFF1A\u5927\u5361\u53D6\u6807\u9898\u5F62\u6001\uFF0C\u5C0F\u5361\u53D6 bullet \u5F62\u6001\uFF08\u6A21\u677F \u00A7\u72B6\u6001\u4F4D\uFF09
   COLS.forEach(function (name) {
-    const s = statusOfHeading(lines, name);
-    if (s && STATUS.indexOf(s.value) < 0) add("R6", s.line, name + " \u7684\u72B6\u6001\u4F4D\u53D6\u503C\u300C" + s.value + "\u300D\u4E0D\u5728\u95ED\u96C6\u5185");
-    if (s && s.value === "\u65E0\u6CD5\u5224\u5B9A" && !/\u7F3A\u4EC0\u4E48\u624D\u80FD\u5224[\uFF1A:]\s*\S/.test(text)) {
-      add("R6", s.line, "\u72B6\u6001\u4F4D\u4E3A \u65E0\u6CD5\u5224\u5B9A\uFF0C\u4F46\u7F3A\u5C11\u975E\u7A7A\u7684\u300C\u7F3A\u4EC0\u4E48\u624D\u80FD\u5224\u300D\u8BF4\u660E");
+    const hIdx = headingIndex(lines, name);
+    const bul = statusOfBullet(lines, name);
+    let st = null;
+    if (hIdx >= 0) {
+      st = statusOfHeading(lines, name);
+      if (!st) { add("R6", hIdx + 1, name + " \u7684\u6807\u9898\u7F3A\u5C11 <\u72B6\u6001\u4F4D>\uFF08\u6A21\u677F \u00A7\u72B6\u6001\u4F4D\uFF09"); return; }
+    } else {
+      if (!bul) {
+        if (big && name === "\u8BF4\u7684\u662F\u771F\u7684\u5417") add("R6", "-", "\u5927\u5361\u7F3A\u5C11 ## " + name + " \u6807\u9898\uFF08\u6A21\u677F L171\uFF09\uFF0C\u65E0\u6CD5\u6838\u5BF9\u72B6\u6001\u4F4D");
+        return;
+      }
+      if (bul.missing) { add("R6", bul.line, name + " \u7684 bullet \u7F3A\u5C11 <\u72B6\u6001\u4F4D>\uFF08\u6A21\u677F \u00A7\u72B6\u6001\u4F4D\uFF09"); return; }
+      st = bul;
+    }
+    if (STATUS.indexOf(st.value) < 0) add("R6", st.line, name + " \u7684\u72B6\u6001\u4F4D\u53D6\u503C\u300C" + st.value + "\u300D\u4E0D\u5728\u95ED\u96C6\u5185");
+    if (st.value === "\u65E0\u6CD5\u5224\u5B9A" && !/\u7F3A\u4EC0\u4E48\u624D\u80FD\u5224[\uFF1A:]\s*\S/.test(text)) {
+      add("R6", st.line, name + " \u72B6\u6001\u4F4D\u4E3A \u65E0\u6CD5\u5224\u5B9A\uFF0C\u4F46\u7F3A\u5C11\u975E\u7A7A\u7684\u300C\u7F3A\u4EC0\u4E48\u624D\u80FD\u5224\u300D\u8BF4\u660E");
     }
   });
+
   rows.forEach(function (r, k) {
     const toks = backtickedTokens(r.cells[1] || "");
     for (const t of toks) {
@@ -234,6 +263,22 @@ function checkFile(file) {
     }
     if (body === 0) add("R10", sIdx + 1, "\u300C\u8FD9\u7BC7\u6587\u7AE0\u5728\u8BF4\u4EC0\u4E48\u300D\u8282\u4E0B\u65E0\u5185\u5BB9");
   }
+
+  // R12 - \u6863\u4F4D\u4E0E\u72B6\u6001\u4F4D\u5FC5\u987B\u5BF9\u5F97\u4E0A\uFF1A\u6863\u4F4D \u2014 \u5F53\u4E14\u4EC5\u5F53 \u72B6\u6001\u4F4D \u2260 \u5DF2\u8BC4\u4F30
+  COLS.forEach(function (name, k) {
+    const g = grades[k];
+    const st = statusOfCard(lines, name);
+    if (!st) {
+      if (g === "\u2014") add("R12", rows[k] ? rows[k].line : "-", name + "\uFF1A\u6863\u4F4D\u4E3A \u2014 \u5374\u6CA1\u6709\u72B6\u6001\u4F4D\uFF0C\u65E0\u6CD5\u6838\u5BF9");
+      return;
+    }
+    const isDash = g === "\u2014";
+    const evaluated = st.value === "\u5DF2\u8BC4\u4F30";
+    if (isDash === evaluated) {
+      add("R12", rows[k] ? rows[k].line : st.line, name + "\uFF1A\u6863\u4F4D\u5199\u300C" + g + "\u300D\u3001\u72B6\u6001\u4F4D\u5199\u300C" + st.value + "\u300D\u2014\u2014\u6863\u4F4D \u2014 \u5F53\u4E14\u4EC5\u5F53 \u72B6\u6001\u4F4D \u2260 \u5DF2\u8BC4\u4F30");
+    }
+  });
+
 
   return { file: file, issues: issues, io: false };
 }
