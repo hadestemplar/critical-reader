@@ -360,10 +360,10 @@
 | `references/03-analysis-w.md` | 18598 | `77f49c2c5c198414288c80fbdd50c52ee9632b7ed367280ac9d9bc1ba09fce8e` |
 | `references/04-analysis-c.md` | 16660 | `4ef9434a5798dca6c416dd3efd2863b0e4eecc2e4b2d47ad1c3ff70bc8047083` |
 | `references/05-analysis-v.md` | 9310 | `817eff64ff2191d3a7ce0bb89abd013cf1825da26f5e8f2a149bb13c33599834` |
-| `references/06-risk-signals.md` | 8156 | `50bd864c301fe3c67ac043943e00edaa93f25ae1f90ff157f4fbbcce35da0e73` |
+| `references/06-risk-signals.md` | 8963 | `4e908c727a460f8e04fd23cc601daee0f6a615daa517e192df4680d95b013d92` |
 | `references/07-redlines.md` | 12832 | `1dfadd9c190e3bd47dc64712aa15d144bd29a0234cb1358e505dd2863fab8c1b` |
 | `references/10-dossier.md` | 20311 | `4d66f9c09f36eb8042c94d6d279cda073e46641252f3edea748de32f6f507205` |
-| `references/10-limits.md` | 7799 | `fb3f21b9d2a4dd77411728b326b5190ae41552405947fee837c1896fdc2e31f0` |
+| `references/10-limits.md` | 7804 | `97b4a2e595b7e9321b78445f42bd14293785c24503b7562a4ecab086edc59ad5` |
 | `templates/screening-card.md` | 20026 | `5114efb4efd4576120d6a1c57ba15b0a648fc9de1c46734b3679f7c17ec45de7` |
 | `scripts/check-card.mjs` | 19812 | `c4e5a264892c51f852a56e033d1fdc50be32569508b1d256a0f236800da91d91` |
 | `scripts/sync-install.mjs` | 5239 | `5cfd690d9a534acb905c1e4e09d2091a492a2154377613266446642cb4f74fe8` |
