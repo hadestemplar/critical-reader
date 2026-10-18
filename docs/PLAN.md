@@ -42,23 +42,24 @@
 
 ```
 critical-reader/
-├─ README.md                    主说明：是什么 / 给谁用 / 怎么装 / 怎么用 / 已知局限
+├─ README.md                    主说明：是什么 / 给谁用 / 怎么装 / 怎么用 / 已知局限 / 维护者须知（改协议必须同步安装副本）
+├─ SKILL.md                     技能入口（frontmatter: name / description / version / user-invocable）+ 「步骤 → 文件」表
+├─ CHANGELOG.md
 ├─ LICENSE                      MIT（代码与脚本）
 ├─ LICENSE-docs                 CC BY 4.0（文档与协议），README 中声明适用范围
-├─ CHANGELOG.md
-├─ SKILL.md                     技能入口（frontmatter: name / description / version / user-invocable）
+├─ package.json / pnpm-lock.yaml  脚本依赖（PDF 文本层用随包的 `unpdf`）
+├─ .gitignore
 ├─ references/                  协议与规范（单一真源）
-│   ├─ 00-protocol.md           六层协议总览 + 执行顺序 + 每层输入输出接口
-│   ├─ 01-genre-routing.md      L0 体裁识别与 A 轨 / B 轨 / C 轨 分流
-│   ├─ 02-source-check.md       L1 来源外部核查
-│   ├─ 03-structure.md          L2 结构完整性（Toulmin / 论题对齐 / 论证 vs 解释）
-│   ├─ 04-assumptions.md        L3 假定与预设
-│   ├─ 05-defects.md            L4 缺陷探测（Walton CQ + 提示性谬误）
-│   ├─ 06-evidence.md           L5 证据强度
-│   ├─ 07-rating.md             L6 否决项 + 档位（无数值刻度；灯仅内部一致性检查）
-│   ├─ 08-track-c.md            C 轨第二套判据
-│   ├─ 09-report-spec.md        报告规范：字段、必填项、证据引用格式（已于 2026-10-17 删除）
-│   └─ 10-limits.md             已知局限与诚实声明
+│   ├─ 00-protocol.md           契约：三轴与零合成 / 术语 / 判定顺序 / 交付物 / 硬规则 1–9
+│   ├─ 01-purpose-routing.md    目的路由 `P0`–`P3` 与各自的判据族（`P3` 不建判据族，只给提示串）
+│   ├─ 02-claim-split.md        切主张：主论题 / 独立论题 / 纯建议；论题表
+│   ├─ 03-analysis-w.md         `W` 轴：支撑四问、`H1`–`H3` 三条硬判据、单条论题与轴层档位
+│   ├─ 04-analysis-c.md         `C` 轴：可核事实主张清点、来源可查性、核查记录与覆盖率
+│   ├─ 05-analysis-v.md         `V` 轴：参照集合、信息增量、重言式
+│   ├─ 06-risk-signals.md       风险识别 13 项（只作提示，不参与档位）
+│   ├─ 07-redlines.md           四条红灯 `W-1` / `W-2` / `C-1` / `V-1`（触发条件唯一真源）+ 档位定义与锚点
+│   ├─ 10-dossier.md            证据卷宗规范：八值层名、四要素表（§8）、未核项、成本与局限
+│   └─ 10-limits.md             已知局限与诚实声明（逐文件局限索引）
 ├─ rubric/
 │   ├─ vetoes.md                否决项清单（`V1`–`V8`，否决项唯一真源）
 │   └─ quality-dims.md          质量维度描述（`D1`–`D4`；无权重、无档带锚点、无阈值）
