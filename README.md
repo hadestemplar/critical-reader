@@ -61,6 +61,21 @@ npm install          # 只为 PDF 依赖 unpdf；不用 PDF 输入可以不装
 
 > 判断本身不需要任何依赖，也不需要联网——联网只影响 `C` 轴外部核查的深度。
 
+### 维护者须知：改了协议，必须同步安装副本
+
+**DSH 读的是技能目录里的副本（`~/.dsh/skills/critical-reader/`），不是这个仓库。只改仓库等于没改。**
+
+这不是推论，是 2026-10-18 实测到的一次：仓库落地完成、检查器全绿、提交都在远端，而安装副本**仍是一整套旧协议**——多 10 个已退役文件、少 9 个新判据文件、另有 7 个文件内容不同。
+
+```bash
+node scripts/sync-install.mjs            # 预演，只报告差异，不落盘
+node scripts/sync-install.mjs --write    # 真正同步
+```
+
+同步的是**可分发集合**（`SKILL.md` + `references/` + `templates/` + `scripts/` + `LICENSE`），**不含** `examples/`、`docs/`、`testset/`、`_scratch/`，也不含 `README.md`、`CHANGELOG.md`、`package.json` 这些仓库外围件。
+
+> 不装 `examples/` **不是体积取舍**：协议自己规定判定者在出判定前不得读 `examples/` 与 `docs/`（那里有判词）。把它装进去，等于主动违反自己的洁净约束。
+
 ## 用法
 
 ### 1. 取正文
