@@ -296,6 +296,52 @@ function checkFile(file) {
     if (!ok) add("M13", i + 1, hm[1] + "\uFF1A\u51FA\u73B0\u7EA2\u706F\u4EE3\u53F7\uFF0C\u4F46\u6CA1\u6709\u5408\u89C4\u767B\u8BB0\u884C\uFF08\u987B\u4E3A\uFF1A- `\u4EE3\u53F7` \uFF5C\u8BBA\u9898\u53E5\uFF1A\u300C\u9010\u5B57\u539F\u6587\u300D\uFF08\u5B9A\u4F4D\uFF09\uFF5C\u65AD\u70B9\uFF1A\u4E00\u53E5\u8BDD\uFF09");
   }
 
+  // M14 - 覆盖率：分母与条目登记必须能对上（只查数得出来的三件事）
+  let cIdx = -1;
+  for (let i = 0; i < lines.length; i++) { if (/^##\s*说的是真的吗/.test(lines[i].trim())) { cIdx = i; break; } }
+  let cSeg = [];
+  if (cIdx >= 0) {
+    let cEnd = lines.length;
+    for (let j = cIdx + 1; j < lines.length; j++) { if (/^## /.test(lines[j])) { cEnd = j; break; } }
+    cSeg = lines.slice(cIdx, cEnd);
+  }
+  const covRe = /已核\s*(\d+)\s*条?\s*[\/／]\s*(?:共\s*)?(\d+)\s*条/g;
+  const covs = [];
+  cSeg.forEach(function (l, k) {
+    let m;
+    covRe.lastIndex = 0;
+    while ((m = covRe.exec(l)) !== null) covs.push({ line: cIdx + 1 + k, n: Number(m[1]), d: Number(m[2]) });
+  });
+  if (covs.length > 0) {
+    const denoms = [];
+    covs.forEach(function (c) {
+      if (denoms.indexOf(c.d) < 0) denoms.push(c.d);
+      if (c.n > c.d) add("M14", c.line, "覆盖率「已核 " + c.n + " / 共 " + c.d + " 条」分子大于分母");
+    });
+    if (denoms.length > 1) add("M14", covs[0].line, "同一栏出现两个不同的分母（" + denoms.join(" / ") + " 条）——分母只能有一个");
+    const d0 = covs[0].d;
+    const extraRe = /(?:另有|还有|剩下|此外)\s*(\d+)\s*条[^\n]{0,25}?(?:未核|未发起|没核|没有核)/;
+    let extraHit = null;
+    cSeg.forEach(function (l, k) { if (!extraHit) { const e = l.match(extraRe); if (e) extraHit = { line: cIdx + 1 + k, x: Number(e[1]) }; } });
+    if (extraHit && d0 < covs[0].n + extraHit.x) {
+      add("M14", extraHit.line, "覆盖率写「共 " + d0 + " 条」，同栏又写「另有 " + extraHit.x + " 条未核」——分母应含这 " + extraHit.x + " 条（应为 " + (covs[0].n + extraHit.x) + " 条）");
+    }
+    const hasPointer = cSeg.some(function (l) { return /卷宗|条目清单|10-dossier/.test(l); });
+    const entries = cSeg.filter(function (l) { return /^\s*\d+[.、)]\s*\S/.test(l); }).length;
+    if (!hasPointer && entries < d0) {
+      add("M14", cIdx + 1, "写「共 " + d0 + " 条」但本栏只登记了 " + entries + " 条条目，且没有指向卷宗的指针——分母不可复核");
+    }
+  }
+
+  // M15 - 切分口径必须披露（只对大卡：小卡不承载这一句）
+  if (cIdx >= 0 && big) {
+    const splitRe = /\*{0,2}(切分口径|清点口径|怎么算一条|按什么算一条)\*{0,2}\s*[：:]\s*\S{6,}/;
+    const hasSplit = cSeg.some(function (l) { return splitRe.test(l); });
+    if (grades[1] !== "\u2014" && !hasSplit) {
+      add("M15", cIdx + 1, "\u8BF4\u7684\u662F\u771F\u7684\u5417\uFF1A\u7F3A\u5C11\u300C\u5207\u5206\u53E3\u5F84\u300D\u62AB\u9732\u53E5\uFF08\u987B\u7528\u4E00\u53E5\u8BDD\u8BF4\u660E\u628A\u4EC0\u4E48\u7B97\u4F5C\u4E00\u6761\u627F\u91CD\u4E8B\u5B9E\u4E3B\u5F20\uFF0C\u89C1 references/04-analysis-c.md \u00A72.1 \u7B2C 3 \u6761\uFF09");
+    }
+  }
+
   return { file: file, issues: issues, io: false };
 }
 
