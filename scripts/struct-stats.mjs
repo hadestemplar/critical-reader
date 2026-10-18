@@ -22,7 +22,7 @@
  *
  * sentences: the full-width marks \u3002 \uff01 \uff1f \uff1b \u2026 end a sentence outright, an ASCII
  * . never does, and an ASCII ? or ! does only when whitespace, a line break or a CJK character
- * follows it (references/01-genre-routing.md:91, ruling K-1) so that a URL query string is not
+ * follows it (_scratch/retired/stage1-protocol/references__01-genre-routing.md, ruling K-1) so that a URL query string is not
  * split. Headings, fenced code blocks (fence lines included), blockquote lines and non-text lines
  * (image placeholder / bare URL / horizontal rule / punctuation only) are excluded from the count;
  * consecutive end marks are one boundary.
@@ -42,7 +42,7 @@ const LATIN_WORD_RE = /[A-Za-z0-9]+(?:['-][A-Za-z0-9]+)*/g;
 // Full-width end marks. Each one is unconditionally a sentence boundary.
 const FULL_WIDTH_END_MARKS = '\u3002\uff01\uff1f\uff1b\u2026';
 // An ASCII ? / ! is a boundary only when one of these follows it: whitespace, a line break or a
-// CJK character (references/01-genre-routing.md:91, ruling K-1). Letters, digits and ASCII
+// CJK character (_scratch/retired/stage1-protocol/references__01-genre-routing.md, ruling K-1). Letters, digits and ASCII
 // punctuation do not qualify, so "Hi!there" and a URL query string stay whole.
 const SENTENCE_BOUNDARY_NEXT_RE = /[\s\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\u3040-\u30ff\uac00-\ud7af]/;
 const ORDERED_ITEM_RE = /^\s*\d+[.\u3001)]\s+/;

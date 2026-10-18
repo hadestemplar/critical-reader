@@ -200,7 +200,7 @@ node scripts/input-file.mjs <file> --out <file>.md
 ## 6. `struct-stats.mjs`
 
 第三个**零 LLM 调用、零依赖**的确定性脚本：把一份归一化 Markdown（也可直接给普通 `.md` / `.txt`）读成
-「结构统计」——`references/01-genre-routing.md:15` 的 L0 必需输入，协议侧登记见 `references/00-protocol.md:193`。
+「结构统计」——旧单档链判据的必需输入（**该判据已随旧链退役**，原登记见 `_scratch/retired/stage1-protocol/references__01-genre-routing.md` 与 `…references__00-protocol.md`）；新链不依赖这项统计，它的结果只作可选的确定性参考。
 **只统计、不判定**：不产出任何「好不好」类结论，也不读 `references/`。
 统计前先剥掉文件开头的 YAML front-matter（`input-wechat.mjs` / `input-file.mjs` 的产物一定带），
 被剥掉的行数由本节新增的 `frontMatterLines` 报出——**所有计数项一律只统计正文**，口径与证据见 §6.4。
@@ -217,7 +217,7 @@ node scripts/struct-stats.mjs - [--json]        # 从 stdin 读
 
   | 字段 | 口径 | 备注 |
   |---|---|---|
-  | `sentences` | 句末标记＝全角 `。｜！｜？｜；｜…`，以及**换行**（逐行切分）；ASCII `.` **不算**句末，ASCII `?` `!` 仅在后接空白/换行/CJK 时才算（K-1，与 `references/01-genre-routing.md:91` 一致） | **标题行、代码块（含围栏行）、引用块行、以及下行 `textLines` 定义的四类非文本行都不计入句数**；连续标点算一次切分；空句不计 |
+  | `sentences` | 句末标记＝全角 `。｜！｜？｜；｜…`，以及**换行**（逐行切分）；ASCII `.` **不算**句末，ASCII `?` `!` 仅在后接空白/换行/CJK 时才算（K-1，与 `_scratch/retired/stage1-protocol/references__01-genre-routing.md` 一致） | **标题行、代码块（含围栏行）、引用块行、以及下行 `textLines` 定义的四类非文本行都不计入句数**；连续标点算一次切分；空句不计 |
   | `paragraphs` | **正文非空行数**（剥离 front-matter 后的非空行；与 `input-*.mjs` 的 `lines` 同口径） | **⚠ 它不是自然段落数**：标题行、代码块（含围栏行）、引用块行、四类非文本行都照算，空行不算；30/30 篇实测满足 `input-file.mjs 的 lines − frontMatterLines = paragraphs`（§6.5） |
   | `textLines` | **正文文本行数** ＝ `paragraphs` 减去非文本行数 | K-2 新增，**JSON 与人类可读输出的末位字段**；非文本行＝`![图N]` 独占行 / 纯 URL 独占行 / 水平分割线行（`---` `***` `___` 独占行）/ 纯标点行（整行不含任何字母或数字）；被减掉的行仍计入 `paragraphs`，但不计句数 |
   | `orderedListItems` | `^\s*\d+[.、)]\s+` 的行数 | `4.d`（标记后无空白）不计 |
@@ -277,7 +277,7 @@ node scripts/struct-stats.mjs <输入文件> --json      # 单行 JSON
 #### 句切分口径变更（2026-10-13 二次裁决，旧→新）
 
 上一版把句末标记实现为 `[\u3002\uff01\uff1f\u2026.?!]+` 并在**全文**上切分，与
-`references/01-genre-routing.md:91` 的闭集口径不一致。现按该口径重写为唯一口径（源码为逐字符边界判定函数，
+`_scratch/retired/stage1-protocol/references__01-genre-routing.md` 的闭集口径不一致。现按该口径重写为唯一口径（源码为逐字符边界判定函数，
 **已不存在单一正则**）：全角 `。！？；…` 无条件断句；ASCII `.` 永不；ASCII `?` `!` 仅在后接空白/换行/CJK 时断句
 （避免 URL query string 被切开）；换行断句；标题行 / 代码块（含围栏行）/ 引用块行不计入句数；连续标点算一次；空片段不计。
 
@@ -305,7 +305,7 @@ node scripts/struct-stats.mjs <输入文件> --json      # 单行 JSON
 | ``` 围栏 2 行内容 + 正文一句 | 1（代码块不计） | 1 ✅（`codeBlockLines=2`，围栏行本身不计） |
 | `你好。世界` | 2（基线） | 2 ✅ |
 | `你好！世界` / `你好？世界`（全角） | 2 | 2 ✅（全角标记无条件断句） |
-| `你好!世界` / `你好?世界`（ASCII 后接 CJK） | 2（后接 CJK → 算句末） | 2 ✅（**T-F5d 修正后才成立**：T-F5d 前实测 `sentences=1` ❌，源码与 `references/01-genre-routing.md:91` 不一致，见 §6.5） |
+| `你好!世界` / `你好?世界`（ASCII 后接 CJK） | 2（后接 CJK → 算句末） | 2 ✅（**T-F5d 修正后才成立**：T-F5d 前实测 `sentences=1` ❌，源码与 `_scratch/retired/stage1-protocol/references__01-genre-routing.md` 不一致，见 §6.5） |
 | `a.b` / `v1.2.0 e.g. a.com` | 1 | 1 ✅ |
 | `；② 每篇……；③ 每篇……`（PLAN.md:97 真实行） | 4（全角 `；` 后接 ② 也要断） | 4 ✅ |
 
@@ -337,7 +337,7 @@ node scripts/struct-stats.mjs <输入文件> --json      # 单行 JSON
    真正的偏小场景是**句末无任何标点**的段落，只能靠换行结尾（末行无换行时该片段仍计 1 句）。
 3. **排除项只作用于 `sentences` 与 `textLines`**：标题行 / 代码块（含围栏行）/ 引用块行只从 `sentences` 里剔除；四类非文本行（K-2）**同时**从 `sentences` 与 `textLines` 里剔除；
    `paragraphs` / `chars` / `latinWords` 对上述所有行照算（与 `input-*.mjs` 的 `lines` 同口径）。在标题、代码或图片占位密集的文档上，`sentences / paragraphs` 这类比值会被系统性拉低——
-   L0 的 `S`（操作块占比）分母请用 `textLines`，不要用 `paragraphs`（§6.5）。
+   旧链 `S`（操作块占比）的分母请用 `textLines`，不要用 `paragraphs`（§6.5）。
 4. **~~YAML front-matter 不算标题行~~（T-F4c 已消除）**：T-F4c 之前只有 `^#{1,6}\s` 与 ``` 围栏被识别，`key: value` 打头的元信息整块计入句数；
    现在文件开头的 front-matter 在统计**之前**整段剥离，全部字段只看正文。剥离规则、失效场景与实测数字见 §6.4。
 5. **单行 fenced code 不受保护**：```` ``` ```` 开在同一行的代码、以及行内反引号里的句末标记照常断句（只有整块被排除）。
@@ -349,8 +349,8 @@ node scripts/struct-stats.mjs <输入文件> --json      # 单行 JSON
 ### 6.4 T-F4c：统计前剥离 YAML front-matter（2026-10-13）
 
 `input-wechat.mjs` / `input-file.mjs` 产出的 `.md` 在文件开头带一段 YAML front-matter。T-F4c 之前这段元信息**整段参与统计**，
-每篇凭空多出 17–19 句、17 个段落，第三个样本 **71% 的 `latinWords`** 来自英文字段名；而 L0 的论证性分数把句数当 `P`（主张句比例）与 `D`（指示词密度）的分母、
-把总行数当 `S`（操作块占比）的分母，三项同向被压低，`score` 系统性偏低，0.60 这条 A 轨 / B·C 轨边界因此失真。
+每篇凭空多出 17–19 句、17 个段落，第三个样本 **71% 的 `latinWords`** 来自英文字段名；而旧链的论证性分数把句数当 `P`（主张句比例）与 `D`（指示词密度）的分母、
+把总行数当 `S`（操作块占比）的分母，三项同向被压低，`score` 系统性偏低，旧链那条 0.60 的体裁边界因此失真。
 
 **规则**（`splitFrontMatter()`）：先做常规归一化（去 BOM、CRLF→LF），再判首行是否为 `---`；是则向下找**下一个** `---` 行，
 连同该行一并剥离，仅其余部分交给各计数器（`splitFrontMatter()` 内部对 CRLF 再做一次兜底归一化）。首行不是 `---`，或找不到配对结束行，
@@ -389,7 +389,7 @@ node scripts/struct-stats.mjs <输入文件> --json      # 单行 JSON
 
 `docs/fixwave-3.md` §6 把 K-1…K-10 写成唯一口径，落到本脚本的是四条：
 
-- **K-1（修实现）**：ASCII `!` / `?` 的句末判定改为与 `references/01-genre-routing.md:91` 一致——**后接空白 / 换行 / CJK 即断句**，其余情形算词内标点。
+- **K-1（修实现）**：ASCII `!` / `?` 的句末判定改为与 `_scratch/retired/stage1-protocol/references__01-genre-routing.md` 一致——**后接空白 / 换行 / CJK 即断句**，其余情形算词内标点。
   旧实现只要后一个字符落在「字母 / 数字 / CJK」集合里就判**不断句**，于是 `你好!世界` 实测 1 句（协议要求 2 句）；而本文件 §6.1 边界表当时记的是 2 ✅，与 §6.3 第 2 条「`你好!你` → 1 句」**自相矛盾**。本次两处一并改掉（`isSentenceBoundary()`）。
   注意 K-1 是**双向**的：后接 ASCII 标点（如 `?!`）在旧口径下算断句、新口径下不算，因此不能只看「多切」一个方向。
 - **K-2（新增口径）**：**非文本行**＝① `![图N]` 独占行；② 纯 URL 独占行（含 `<…>` 包裹）；③ 水平分割线独占行（`---` / `***` / `___`）；④ 纯标点行（整行不含任何字母或数字，含 `……` / `▼` / `##` / `◆ ◆ ◆ ◆` 与 emoji 行）。

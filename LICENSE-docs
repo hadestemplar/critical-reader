@@ -1,6 +1,6 @@
 # 文档许可
 
-除 `scripts/` 与 `testset/selfcheck.mjs` 之外的**全部内容**——协议文本（`references/`、`rubric/`）、报告规范与模板（`references/09-report-spec.md`、`templates/`）、`SKILL.md`、`README.md`、`docs/`、`testset/README.md` 等——采用
+除 `scripts/` 与 `testset/selfcheck.mjs` 之外的**全部内容**——协议文本（`references/`）、模板（`templates/`）、`SKILL.md`、`README.md`、`CHANGELOG.md`、`docs/`、`examples/`、`testset/`（`selfcheck.mjs` 除外）等——采用
 
 **Creative Commons Attribution 4.0 International（CC BY 4.0）**
 
